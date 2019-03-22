@@ -187,6 +187,8 @@ console.log(t,r,l,r-l)
 		if(type == "signature" || type == "signaturepc" || type == "signaturepcelectorate"){
 			this.data["signaturepc"] = {};
 			this.hex.data["signaturepc"] = {};
+			this.data["signaturepcelectorate"] = {};
+			this.hex.data["signaturepcelectorate"] = {};
 			ttype = "signature";
 			if(this.pushstate) history.pushState({petition:petition},"Hexmap","?"+petition);
 			S('.loading').removeClass('loading');

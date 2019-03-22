@@ -376,8 +376,8 @@ function Constituencies(id,w,h,padding,file){
 		if(type == "population"){
 			var b = new Colour('#F9BC26');
 			var a = new Colour('#D60303');
-			var min = 25000;
-			var max = 150000;
+			var min = 50000;
+			var max = 80000;
 			this.hex.setColours = function(region){
 				var value = (this.mapping.hexes[region].p - min)/(max-min);
 				if(value < 0) value = 0;
@@ -389,8 +389,8 @@ function Constituencies(id,w,h,padding,file){
 		if(type == "electorate"){
 			var b = new Colour('#F9BC26');
 			var a = new Colour('#D60303');
-			var min = 50000;
-			var max = 80000;
+			var min = 25000;
+			var max = 150000;
 			this.hex.setColours = function(region){
 				var value = (this.mapping.hexes[region].e - min)/(max-min);
 				if(value < 0) value = 0;

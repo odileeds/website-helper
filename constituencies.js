@@ -389,15 +389,15 @@ function Constituencies(id,w,h,padding,file){
 		if(type == "electorate"){
 			var b = new Colour('#F9BC26');
 			var a = new Colour('#D60303');
-			var min = 25000;
-			var max = 150000;
+			var mine = 25000;
+			var maxe = 150000;
 			this.hex.setColours = function(region){
-				var value = (this.mapping.hexes[region].e - min)/(max-min);
+				var value = (this.mapping.hexes[region].e - mine)/(maxe-mine);
 				if(value < 0) value = 0;
 				if(value > 1) value = 1;
 				return getColour(value,a,b);
 			};
-			key = '&le;'+min+'<span style="'+makeGradient(a,b)+';width: 10em; height: 1em;opacity: 0.7;display: inline-block;margin: 0 0.25em;"></span>&ge;'+max;
+			key = '&le;'+mine+'<span style="'+makeGradient(a,b)+';width: 10em; height: 1em;opacity: 0.7;display: inline-block;margin: 0 0.25em;"></span>&ge;'+maxe;
 		}
 		if(type == "party"){
 			var names = {'Con':'Conservative','Lab':'Labour','LD':'Lib Dem','PC':'Plaid Cymru','Ind':'Independent','Spk':'Speaker'};

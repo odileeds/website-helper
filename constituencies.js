@@ -57,6 +57,7 @@ console.log(t,r,l,r-l)
 		var rs = {'SC':'Scotland','NI':'Northern Ireland','WA':'Wales','NE':'North East','NW':'North West','YH':'Yorkshire &amp; Humber','WM':'West Midlands','EM':'East Midlands','EA':'East Anglia','LO':'London','SE':'South East','SW':'South West'};
 		var lbl = e.data.hexmap.mapping.hexes[e.data.region].label;
 		if(e.data.builder.by == "population") lbl = title+'<br />Population: '+e.data.pop;
+		else if(e.data.builder.by == "electorate") lbl = title+'<br />Electorate: '+e.data.hexmap.data['electorate'][e.data.region];
 		else if(e.data.builder.by == "signature") lbl = title+'<br />Signatures: '+(e.data.hexmap.data['signature'][e.data.region]||0);
 		else if(e.data.builder.by == "signaturepc") lbl = title+'<br />Signatures (% pop): '+(e.data.hexmap.data['signaturepc'][e.data.region].toFixed(2)||0);
 		else if(e.data.builder.by == "signaturepcelectorate") lbl = title+'<br />Signatures (% electorate): '+(e.data.hexmap.data['signaturepcelectorate'][e.data.region].toFixed(2)||0);
@@ -130,6 +131,7 @@ console.log(t,r,l,r-l)
 	S('#colour-spc').on('click',{me:this},function(e){ e.data.me.setColours('signaturepc'); updateClass(this); });
 	S('#colour-sel').on('click',{me:this},function(e){ e.data.me.setColours('signaturepcelectorate'); updateClass(this); });
 	S('#colour-pop').on('click',{me:this},function(e){ e.data.me.setColours('population'); updateClass(this); });
+	S('#colour-ele').on('click',{me:this},function(e){ e.data.me.setColours('electorate'); updateClass(this); });
 	S('#colour-reg').on('click',{me:this},function(e){ e.data.me.setColours('region'); updateClass(this); });
 	S('#colour-pty').on('click',{me:this},function(e){ e.data.me.setColours('party'); updateClass(this); });
 	S('#colour-ref').on('click',{me:this},function(e){ e.data.me.setColours('referendum'); updateClass(this); });
@@ -378,6 +380,19 @@ console.log(t,r,l,r-l)
 			var max = 80000;
 			this.hex.setColours = function(region){
 				var value = (this.mapping.hexes[region].p - min)/(max-min);
+				if(value < 0) value = 0;
+				if(value > 1) value = 1;
+				return getColour(value,a,b);
+			};
+			key = '&le;'+min+'<span style="'+makeGradient(a,b)+';width: 10em; height: 1em;opacity: 0.7;display: inline-block;margin: 0 0.25em;"></span>&ge;'+max;
+		}
+		if(type == "electorate"){
+			var b = new Colour('#F9BC26');
+			var a = new Colour('#D60303');
+			var min = 25000;
+			var max = 150000;
+			this.hex.setColours = function(region){
+				var value = (this.mapping.hexes[region].e - min)/(max-min);
 				if(value < 0) value = 0;
 				if(value > 1) value = 1;
 				return getColour(value,a,b);

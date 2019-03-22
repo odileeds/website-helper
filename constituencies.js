@@ -36,7 +36,7 @@ function Constituencies(id,w,h,padding,file){
 			}
 		}
 		var v = 0;
-console.log(t,r,l,r-l)
+//console.log(t,r,l,r-l)
 		for(var i in c){ if(c[i]){ v += c[i]; } }
 		return (l-r);
 	}
@@ -57,7 +57,7 @@ console.log(t,r,l,r-l)
 		var rs = {'SC':'Scotland','NI':'Northern Ireland','WA':'Wales','NE':'North East','NW':'North West','YH':'Yorkshire &amp; Humber','WM':'West Midlands','EM':'East Midlands','EA':'East Anglia','LO':'London','SE':'South East','SW':'South West'};
 		var lbl = e.data.hexmap.mapping.hexes[e.data.region].label;
 		if(e.data.builder.by == "population") lbl = title+'<br />Population: '+e.data.pop;
-		else if(e.data.builder.by == "electorate") lbl = title+'<br />Electorate: '+e.data.hexmap.data['electorate'][e.data.region];
+		else if(e.data.builder.by == "electorate") lbl = title+'<br />Electorate: '+e.data.hexmap.mapping.hexes[e.data.region].e;
 		else if(e.data.builder.by == "signature") lbl = title+'<br />Signatures: '+(e.data.hexmap.data['signature'][e.data.region]||0);
 		else if(e.data.builder.by == "signaturepc") lbl = title+'<br />Signatures (% pop): '+(e.data.hexmap.data['signaturepc'][e.data.region].toFixed(2)||0);
 		else if(e.data.builder.by == "signaturepcelectorate") lbl = title+'<br />Signatures (% electorate): '+(e.data.hexmap.data['signaturepcelectorate'][e.data.region].toFixed(2)||0);

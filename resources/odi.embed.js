@@ -1,3 +1,13 @@
+/**
+   ODI Leeds Embed version 0.2.2
+   To protect privacy we avoid including YouTube videos (and similar) in the page as iframes directly.
+   Instead we have a link to the YouTube embed version and use the .external-embed class to intercept
+   the click and turn it into an iframe when someone clicks. Styling is applied to the class elsewhere.
+   
+   <div id="player" class="external-embed">
+     <div class="inner" id="player-inner"><a href="https://www.youtube.com/embed/gxipcNf1bqA?autoplay=true"><h2>Paul Connell - Founder, ODI Leeds</h2><h3>Introduction to the Northernlands3 conference</h3></a></div>
+   </div>
+ */
 (function(root){
 
 	var ODI = root.ODI || {};

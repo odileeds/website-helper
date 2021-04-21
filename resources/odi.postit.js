@@ -1,3 +1,9 @@
+/**
+	ODI Leeds sticky-note display
+	Version: 1.1
+	This helper function looks for links to Google spreadsheets, grabs them,
+	and then builds a <ul> of the attendees. Sticky-note styling is done elsewhere.
+ */
 (function(root){
 
 	var ODI = root.ODI || {};

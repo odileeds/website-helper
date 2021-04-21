@@ -1,4 +1,27 @@
-// ODI Analytics version 1.2
+/**
+	ODI Analytics
+	Version: 1.2
+	This is for displaying our privacy-first analytics data. This code assumes the data is arranged in the same directory.
+	It is called like this:
+
+	ODI.ready(function(){
+		ODI.analytics.init({
+			'meta': 'odileeds-meta.json',
+			'urls': 'odileeds-urls.tsv',
+			'cuts':{
+				'hourly':{'file':'odileeds-hourly.json'},
+				'daily':{'file':'odileeds-%Y-%M-%D.json'},
+				'monthly':{'file':'odileeds-%Y-%M.json'}
+			},
+			'internal':[
+				'https://odileeds.org',
+				'https://odileeds.github.io'
+			],
+			'baseurl': 'https://odileeds.org',
+			'click':false
+		});
+	});
+ */
 (function(root){
 
 	var ODI = root.ODI || {};
